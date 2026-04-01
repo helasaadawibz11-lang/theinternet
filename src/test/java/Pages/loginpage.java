@@ -75,6 +75,7 @@ public class loginpage {
 
     // 3eme essai de la fonction getmsgerreur qui semble plus robuste avec le site TheInternet
 
+
     public String getmsgerreur() {
         // 1. On attend que l'élément soit présent dans le DOM
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(msgerreurlogin));
@@ -85,7 +86,6 @@ public class loginpage {
 
         String textecomplet = element.getText();
         System.out.println("DEBUG - Texte capturé : [" + textecomplet + "]");
-
         return textecomplet;
     }
 }
