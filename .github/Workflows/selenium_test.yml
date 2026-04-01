@@ -1,7 +1,6 @@
 name: Selenium Java Tests
 on:
   workflow_dispatch: # Permet à n8n de déclencher le test via API
-
 jobs:
   test:
     runs-on: ubuntu-latest
