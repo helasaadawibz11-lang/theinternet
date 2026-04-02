@@ -42,9 +42,9 @@ public class Hook {
                     System.out.println("Erreur lors de la capture : " + e.getMessage());
                 }
             }
-            // On ferme et on remet à null pour le prochain test
-            /*driver.quit();
-            driver = null; */
+            //On ferme et on remet à null pour le prochain test
+            driver.quit();
+            driver = null;
         }
     }
 }

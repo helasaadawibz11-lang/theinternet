@@ -27,7 +27,7 @@ public class loginpage {
     public loginpage(WebDriver driver){
         this.driver=driver;
         PageFactory.initElements(driver,this);
-        wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait=new WebDriverWait(driver, Duration.ofSeconds(20));
 
     }
     public void enterusername(String user){
@@ -39,11 +39,12 @@ public class loginpage {
     public void clicklogin(){
         driver.findElement(loginbtn).click();
     }
+
     public void veriflogin(){
-
-        Assert.assertEquals("loginfailed","https://the-internet.herokuapp.com/secure",driver.getCurrentUrl());
+        // Attendre que l'URL soit la bonne avant de vérifier
+        wait.until(ExpectedConditions.urlToBe("https://the-internet.herokuapp.com/secure"));
+        Assert.assertEquals("Redirection échouée", "https://the-internet.herokuapp.com/secure", driver.getCurrentUrl());
         System.out.println("msg:" + driver.findElement(successloginmsg).getText());
-
     }
     public void saisiruser(String user){
         driver.findElement(userinput).sendKeys(user);

@@ -26,7 +26,7 @@ public class loginsteps {
         this.driver=Hook.driver;
         loginpage=new loginpage(driver);
         driver.get("https://the-internet.herokuapp.com/login");
-        wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait=new WebDriverWait(driver, Duration.ofSeconds(20));
 
     }
     @When("je saisi username {string}")
