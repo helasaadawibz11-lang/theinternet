@@ -19,7 +19,7 @@ jobs:
       - name: Send Report to n8n
         if: always()
         run: |
-            curl -X POST "https://hela.app.n8n.cloud/webhook-test/resultselenium" \
+            curl -X POST "https://hela.app.n8n.cloud/webhook-test/selenium_result" \
               -F "status=${{ job.status }}" \
               -F "report=@target/cucumber-reports.html"
           
