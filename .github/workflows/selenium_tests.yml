@@ -23,10 +23,6 @@ jobs:
               -F "status=${{ job.status }}" \
               -F "report=@target/cucumber-reports.html"
           
-          
-          //Actuellement, ton rapport (class testRunner) est généré dans le dossier target/ 
-          de la machine virtuelle GitHub, mais il est détruit dès que le job se termine. 
-          Il faut l' "uploader" pour qu'il soit accessible via une URL ou envoyé vers n8n.
 
       - name: Upload Cucumber Report
         if: always() # On veut le rapport même si le test échoue !
