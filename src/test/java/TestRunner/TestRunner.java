@@ -7,7 +7,11 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         // Chemin vers vos fichiers .feature
-        features = "src/test/java/Features/login.feature",
+        //features = "src/test/java/Features/login.feature",
+        //features = "src/test/java/Features/dragandrop.feature",
+        features = "src/test/java/Features/Alerts.feature",
+
+
         // Chemin vers vos Step Definitions et Hooks
         glue = "Steps",
         tags = "@Test",

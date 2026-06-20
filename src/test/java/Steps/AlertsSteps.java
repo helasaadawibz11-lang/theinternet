@@ -23,7 +23,7 @@ public class AlertsSteps {
 
     @When("je click sur l alerte java script sipmle click")
     public void jeClickSurLAlerteJavaScriptSipmleClick() {
-        AlertsPage.setClickjsAlert();
+        AlertsPage.clickAlertSimple();
     }
 
     @Then("alerte saffiche avec msg boite dialogue I am a JS Alert et bouton ok")
@@ -36,20 +36,7 @@ public class AlertsSteps {
     @And("je click sur bouton OK")
     public void jeClickSurBoutonOK() {
         AlertsPage.affichageDialogueAlertsimple();
-        //String Expectedcolourbtn="rgb(34, 132, 161)" ;
-        // c'est la couleur vrai du code css , mais a cause des filtres selenium voit la couleur un peut changer donc il vaut mieux donner la reference comme il la voit selenium avec son visionnage filtré
 
-        String Expectedcolourbtn="rgb(35, 137, 168)" ;
-        // 3. Définis ton attendu en Hex (35, 137, 168 donne environ #2389a8)
-        // Tu peux trouver l'Hexa dans l'inspecteur Chrome (onglet Computed)
-        String expectedHex = "#2389a8";
-        String ActualColour=AlertsPage.getButtonColourjsAlert();
-        // 2. On la convertit en Hexadécimal pour une comparaison facile
-        String actualHex = Color.fromString(ActualColour).asHex();
-        System.out.println("le code hex attendu est : #2389a8 , alors que selenium a lu :" +actualHex );
-        //Assert.assertEquals("color failed",Expectedcolourbtn,ActualColour);
-        // assert equals echoue dans ce cas car le code couleur que voit selenium n'est pas exacte et change legerement a chaque execution
-        Assert.assertTrue("color failed",actualHex.contains("#238"));
     }
 
     @Then("result affiche You successfully clicked an alert")
@@ -61,7 +48,7 @@ public class AlertsSteps {
     }
     @When("je click sur l alerte java script confirm")
     public void jeClickSurLAlerteJavaScriptConfirm() {
-        AlertsPage.setClickjsAlertConfirm();
+        AlertsPage.clickAlertConfirm();
     }
 
     @Then("alerte saffiche avec msg boite dialogue I am a JS Confirm et boutons ok cancel")
@@ -96,7 +83,7 @@ public class AlertsSteps {
 
     @When("je click sur l alerte java script Prompt")
     public void jeClickSurLAlerteJavaScriptPrompt() {
-       AlertsPage.setClickAlertPrompt();
+       AlertsPage.clickAlertPrompt();
     }
 
     @And("je click sur bouton OK Prompt")
@@ -143,6 +130,24 @@ public class AlertsSteps {
         String Actualmsg=AlertsPage.getmsgConfirmResult();
         Assert.assertTrue("wrongmsg",Actualmsg.contains(Expectedmsg));
        // System.out.println("le msg est : "+Actualmsg);
+
+    }
+
+    @Then("modification couleur bouton lors du click")
+    public void modificationCouleurBoutonLorsDuClick() {
+
+        //rgb(34, 132, 161) c'est la couleur vrai du code css , mais a cause des filtres selenium voit la couleur un peut changer donc il
+        // vaut mieux donner la reference comme il la voit selenium avec son visionnage filtré
+
+        String Expectedcolourbtn="rgb(35, 137, 168)" ;
+        // on peux trouver l'Hexa dans l'inspecteur Chrome (onglet Computed)
+        String expectedHex = "#2389a8";
+        String ActualColour=AlertsPage.getButtonColourjsAlert();
+        //On la convertit en Hexadécimal pour une comparaison facile
+        String actualHex = Color.fromString(ActualColour).asHex();
+        System.out.println("le code hex attendu est : #2389a8 , alors que selenium a lu :" +actualHex );
+
+        Assert.assertTrue("color failed",actualHex.contains("#238"));
 
     }
 }
